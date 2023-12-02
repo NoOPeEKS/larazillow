@@ -1,11 +1,11 @@
 <template>
-    <div>Index</div>
-    <Link href="/hello">Show Page</Link>
-    <h1>This is the message: {{ message }}</h1>
+    <MainLayout>
+        <h1>This is the message: {{ message }}</h1>
+    </MainLayout>
 </template>
 
 <script setup>
-    import { Link } from '@inertiajs/vue3';
+    import MainLayout from '../../Layouts/MainLayout.vue';
     defineProps({
         message: String
     });
