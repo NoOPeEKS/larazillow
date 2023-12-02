@@ -1,8 +1,10 @@
 <template>
-    <div>{{ listings.street }} {{ listings.street_nr }}, 
-    {{ listings.city }}, for {{ listings.price }}€</div>
+    <div>
+        <ListingAddress :listing="listings" />
+    </div>
 </template>
 <script setup>
+    import ListingAddress from '../../Components/ListingAddress.vue';
     defineProps({
         listings: Object,
     });
