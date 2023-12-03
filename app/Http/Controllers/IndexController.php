@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index() {
-        return inertia("Index/Index", [
-            'message' => 'Hello from laravel',
-        ]);
+        return inertia("Index/Index");
     }
 
     public function show() {

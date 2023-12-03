@@ -1,9 +1,3 @@
 <template>
-    <h1>This is the message: {{ message }}</h1>
+    <h1>Main page</h1>
 </template>
-
-<script setup>
-    defineProps({
-        message: String
-    });
-</script>
