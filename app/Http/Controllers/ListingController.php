@@ -59,17 +59,29 @@ class ListingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Listing $listing)
     {
-        //
+        return inertia('Listing/Edit', ['listing' => $listing]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Listing $listing)
     {
-        //
+        $listing->update(
+            $request->validate([
+                'beds' => 'required|integer|min:0|max:20',
+                'baths' => 'required|integer|min:0|max:20',
+                'area' => 'required|integer|min:10|max:1500',
+                'city' => 'required',
+                'code' => 'required',
+                'street_nr' => 'required|integer|min:1|max:500',
+                'price'=> 'required|integer|min:1|max:20000000',
+            ])
+        );
+
+        return redirect()->route('listing.index')->with('success', 'Listing was edited!');
     }
 
     /**
