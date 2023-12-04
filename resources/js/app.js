@@ -18,4 +18,10 @@ createInertiaApp({
       .use(ZiggyVue)
       .mount(el)
   },
+  progress: {
+    delay: 0,
+    color: '#29d',
+    includeCSS: true,
+    showSpinner: true,
+  }
 })
