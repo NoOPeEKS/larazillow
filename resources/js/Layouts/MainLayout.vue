@@ -11,7 +11,9 @@
         <div v-if="user" class="flex items-center gap-4">
           <div class="text-sm text-gray-500">{{user.name}}</div>
           <Link :href="route('listing.create')" class="btn-primary">+ New Listing</Link>
-          <div>Logout</div>
+          <div>
+            <Link :href="route('logout')" method="DELETE" as="button">Log Out</Link>
+          </div>
         </div>
         <div v-else>
           <Link :href="route('login')">Log In</Link>
