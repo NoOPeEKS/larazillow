@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -50,5 +51,9 @@ class User extends Authenticatable
             get: fn ($value) => $value,
             set: fn ($value) => bcrypt($value),
         );
+    }
+
+    public function listings(): HasMany {
+        return $this->hasMany(\App\Models\Listing::class, 'by_user_id');
     }
 }
