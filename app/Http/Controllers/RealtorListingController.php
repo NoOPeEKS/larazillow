@@ -19,7 +19,9 @@ class RealtorListingController extends Controller
         ];
         return inertia(
             "Realtor/Index", 
-            ['listings' => Auth::user()
+            [
+                'filters' => $filters,
+                'listings' => Auth::user()
                             ->listings()
                             //->mostRecent()
                             ->filter($filters)
