@@ -23,7 +23,7 @@ Route::get('/hello', [IndexController::class, 'show'])->middleware('auth');
 
 // Apply middleware to these listing routes (create, store, edit, update, destroy)
 Route::resource('listing', ListingController::class)
-    ->only(['create', 'store', 'edit', 'update', 'destroy'])
+    ->only(['create', 'store', 'edit', 'update'])
     ->middleware('auth');
 
 // Do not apply middleware to the rest of listing routes (index, show)
@@ -39,5 +39,6 @@ Route::prefix('realtor')
     ->name('realtor.')
     ->middleware('auth')
     ->group(function () {
-        Route::resource('listing', RealtorListingController::class);
+        Route::resource('listing', RealtorListingController::class)
+        ->only(['index', 'destroy']);
     });
