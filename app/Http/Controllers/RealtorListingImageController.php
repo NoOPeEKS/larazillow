@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class RealtorListingImageController extends Controller
 {
     public function create(Listing $listing) {
+        $listing->load('images');
         return inertia(
             "Realtor/ListingImage/Create", 
             ['listing' => $listing]
