@@ -15,4 +15,8 @@ class Listing extends Model
     public function owner(): BelongsTo {
         return $this->belongsTo(\App\Models\User::class,'by_user_id');
     }
+
+    public function scopeMostRecent($query) {
+        return $this->orderByDesc('created_at');
+    }
 }
