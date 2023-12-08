@@ -85,5 +85,5 @@
         price: 0,
     });
 
-    const create = () => form.post(route('listing.store'));
+    const create = () => form.post(route('realtor.listing.store'));
 </script>
