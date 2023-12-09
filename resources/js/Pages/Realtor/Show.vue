@@ -8,7 +8,15 @@
                 No offers
             </div>
         </Box>
-        <div v-else class="md:col-span-7 items-center">Displayed when there are offers</div>
+        <div v-else class="md:col-span-7 items-center">
+            <Offer 
+                v-for="offer in listing.offers" 
+                :key="offer.id" 
+                class="mb-4" 
+                :offer="offer"
+                :listing-price="listing.price"
+                />
+        </div>
         <Box class="md:col-span-5">
             <template #header>Basic Info:</template>
             <Price :price="listing.price" class="text-2xl font-bold" />
@@ -26,6 +34,7 @@ import Box from '@/Components/UI/Box.vue';
 import Price from '@/Components/Price.vue';
 import ListingSpace from '@/Components/ListingSpace.vue';
 import ListingAddress from '@/Components/ListingAddress.vue';
+import Offer from '@/Pages/Realtor/Show/Components/Offer.vue';
 import { computed } from 'vue';
 
 const props = defineProps({
