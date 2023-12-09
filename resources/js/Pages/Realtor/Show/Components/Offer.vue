@@ -15,7 +15,14 @@
                 </div>
             </div>
             <div>
-                <Link class="btn-outline text-xs font-medium" as="button">Accept</Link>
+                <Link 
+                    :href="route('realtor.offer.accept', {offer: offer.id})" 
+                    class="btn-outline text-xs font-medium" 
+                    as="button"
+                    method="PUT"
+                    >
+                    Accept
+                </Link>
             </div>
         </section>
     </Box>

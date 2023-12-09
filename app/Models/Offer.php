@@ -25,4 +25,8 @@ class Offer extends Model
     public function scopeByMe (Builder $query): Builder {
         return $query->where('bidder_id', Auth::user()?->id);
     }
+
+    public function scopeAccept(Builder $query, Offer $offer): Builder {
+        return $query->where('id', '!=', $offer->id);
+    }
 }
