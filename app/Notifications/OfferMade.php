@@ -27,7 +27,7 @@ class OfferMade extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -49,7 +49,10 @@ class OfferMade extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'offer_id' => $this->offer->id,
+            'listing_id' => $this->offer->listing->id,
+            'amount' => $this->offer->amount,
+            'bidder' => $this->offer->bidder->id,
         ];
     }
 }
